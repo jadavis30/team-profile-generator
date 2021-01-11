@@ -1,3 +1,3 @@
-const Generator = require("../lib/Generator");
+const Generator = require("./lib/Generator");
 
 new Generator().promptUser();
