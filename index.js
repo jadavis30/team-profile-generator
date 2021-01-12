@@ -85,7 +85,7 @@ async function init() {
     try {
         //Inquirer ?s
         const userResponses = await inquirer.prompt(questions);
-        //Pass Inquirer ?s to generateMarkdown
+        //Pass Inquirer ?s to generateHTML
         const html = generateHTML(userResponses);
         //Write markdown to file
         await writeFileAsync("index.html", html);
