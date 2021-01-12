@@ -68,6 +68,89 @@ const questions = [
      
 ]
 
+const engineerQuestions = [
+    {    
+        type: "input",
+        name: "name",
+        message:"What is the name of this engineer?",
+        validate: function (answer) {
+            if (answer.length < 1) {
+                return console.log("Please provide the engineer's name.");
+            }
+            return true;
+            },
+        },
+    {    
+        type: "input",
+        name: "id",
+        message:"What is the engineer's id?",
+        validate: function (answer) {
+            if (answer.length < 1) {
+                return console.log("Please provide their employee ID.");
+            }
+            return true;
+            },
+        },
+    {    
+        type: "input",
+        name: "email",
+        message:"What is their e-mail?",
+        validate: function (answer) {
+            if (answer.length < 1) {
+                return console.log("Please provide their e-mail.");
+            }
+            return true;
+            },
+        },
+    {    
+        type: "input",
+        name: "github",
+        message:"What is your GitHub username?",
+        validate: function (answer) {
+            if (answer.length < 1) {
+                return console.log("Please provide your username.");
+            }
+            return true;
+            },
+        }
+]
+
+const internQuestions = [
+    {    
+        type: "input",
+        name: "name",
+        message:"What is the name of this intern?",
+        validate: function (answer) {
+            if (answer.length < 1) {
+                return console.log("Please provide the intern's name.");
+            }
+            return true;
+            },
+        },
+    {    
+        type: "input",
+        name: "email",
+        message:"What is their e-mail?",
+        validate: function (answer) {
+            if (answer.length < 1) {
+                return console.log("Please provide their e-mail.");
+            }
+            return true;
+            },
+        },
+    {    
+        type: "input",
+        name: "school",
+        message:"Which university or program do you attend?",
+        validate: function (answer) {
+            if (answer.length < 1) {
+                return console.log("Please provide your university's or program's name.");
+            }
+            return true;
+            },
+        }
+]
+
 //Write HTML file
 function writeToFile(fileName, data) {   
     fs.writeFile(fileName, data, err => {
