@@ -63,16 +63,13 @@ const questions = [
         type: "list",
         name: "build",
         message:"Build your team by selecting 'Engineer' or 'Intern' to add members; select 'Finalize' to generate the page!",
-        choices: ["Engineer", "Intern", "Finalize"],
-        },  
-     
-]
-
-const engineerQuestions = [
-    {    
+        choices: ["Engineer", "Intern", "Finalize"]
+        },
+        {    
         type: "input",
-        name: "name",
+        name: "engineername",
         message:"What is the name of this engineer?",
+        when: (answers) => answers.build ==="Engineer",
         validate: function (answer) {
             if (answer.length < 1) {
                 return console.log("Please provide the engineer's name.");
@@ -80,40 +77,52 @@ const engineerQuestions = [
             return true;
             },
         },
-    {    
-        type: "input",
-        name: "id",
-        message:"What is the engineer's id?",
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please provide their employee ID.");
-            }
-            return true;
+        {    
+            type: "input",
+            name: "engineerid",
+            message:"What is the engineer's id?",
+            when: (answers) => answers.engineername === answers.engineername,
+            validate: function (answer) {
+                if (answer.length < 1) {
+                    return console.log("Please provide their employee ID.");
+                }
+                return true;
+                },
             },
+        {
+            type: "input",
+            name: "engineeremail",
+            message:"What is their e-mail?",
+            when: (answers) => answers.engineerid === answers.engineerid,
+            validate: function (answer) {
+                if (answer.length < 1) {
+                    return console.log("Please provide their e-mail.");
+                }
+                return true;
+                },
         },
-    {    
-        type: "input",
-        name: "email",
-        message:"What is their e-mail?",
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please provide their e-mail.");
-            }
-            return true;
-            },
+        {    
+            type: "input",
+            name: "github",
+            message:"What is your GitHub username?",
+            when: (answers) => answers.engineeremail === answers.engineeremail,
+            validate: function (answer) {
+                if (answer.length < 1) {
+                    return console.log("Please provide your username.");
+                }
+                return true;
+                },
         },
-    {    
-        type: "input",
-        name: "github",
-        message:"What is your GitHub username?",
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please provide your username.");
-            }
-            return true;
+        {    
+            type: "list",
+            name: "build",
+            message:"Build your team by selecting 'Engineer' or 'Intern' to add members; select 'Finalize' to generate the page!",
+            choices: ["Engineer", "Intern", "Finalize"],
+            when: (answers) => answers.github === answers.github,
             },
-        }
+     
 ]
+
 
 const internQuestions = [
     {    
@@ -158,7 +167,7 @@ function writeToFile(fileName, data) {
             return console.log(err);
         }
         
-        console.log("HTML complete! Check Team.html to see its output.");
+        console.log("HTML complete! Check index.html to see its output.");
     });
 };    
         
@@ -171,7 +180,7 @@ async function init() {
         const userResponses = await inquirer.prompt(questions);
         //Pass Inquirer ?s to generateHTML
         const html = generateHTML(userResponses);
-        //Write markdown to file
+        //Write html to file
         await writeFileAsync("index.html", html);
     } catch (error) {
         console.log(error);
