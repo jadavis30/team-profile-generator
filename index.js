@@ -1,4 +1,8 @@
-const fs = require("fs");
+const Generator = require("./lib/Generator");
+
+new Generator().initializePrompt();
+
+/*const fs = require("fs");
 const util = require("util");
 const inquirer = require("inquirer");
 const generateHTML = require("./lib/generateHTML");
@@ -124,41 +128,6 @@ const questions = [
 ]
 
 
-const internQuestions = [
-    {    
-        type: "input",
-        name: "name",
-        message:"What is the name of this intern?",
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please provide the intern's name.");
-            }
-            return true;
-            },
-        },
-    {    
-        type: "input",
-        name: "email",
-        message:"What is their e-mail?",
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please provide their e-mail.");
-            }
-            return true;
-            },
-        },
-    {    
-        type: "input",
-        name: "school",
-        message:"Which university or program do you attend?",
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please provide your university's or program's name.");
-            }
-            return true;
-            },
-        }
-]
 
 //Write HTML file
 function writeToFile(fileName, data) {   
@@ -173,7 +142,7 @@ function writeToFile(fileName, data) {
         
 const writeFileAsync = util.promisify(writeToFile);
 
-// Initialize app
+/* Initialize app
 async function init() {
     try {
         //Inquirer ?s
@@ -188,4 +157,4 @@ async function init() {
 }; 
 
 // Function call to initialize app
-init();
+init(); */
