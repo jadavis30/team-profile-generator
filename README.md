@@ -20,6 +20,7 @@
    ## Usage
    *Instructions for use with examples:*  
    This project may be used freely to help new developers quickly give team information.
+   Walkthrough video: https://drive.google.com/file/d/11SMcqpF3h1nI_4S7bm5fyo3cvZc3jvut/view 
 
    ## License
    *[MIT License](https://www.mit.edu/~amini/LICENSE.md)*
