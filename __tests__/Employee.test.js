@@ -9,10 +9,6 @@ test('create Employee object', () => {
     
 });
 
-test('getRole will run questions again', () => {
-    const employee = new Employee('Jared', '42', 'jared.davis21@yahoo.com');
 
-    expect()
-})
 
 
